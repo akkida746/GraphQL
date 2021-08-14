@@ -10,9 +10,10 @@ public class GreetingMutation implements GraphQLMutationResolver {
     @Autowired
     private GreetingRepository greetingRepository;
 
-    public Greeting newGreeting(String message) {
+    public Greeting newGreeting(String message, String name) {
         Greeting greeting = new Greeting();
         greeting.setMessage(message);
+        greeting.setName(name);
 
         return greetingRepository.save(greeting);
     }

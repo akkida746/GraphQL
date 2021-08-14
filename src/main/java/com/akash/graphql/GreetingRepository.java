@@ -3,8 +3,10 @@ package com.akash.graphql;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class GreetingRepository {
@@ -26,5 +28,9 @@ public class GreetingRepository {
 
     public Greeting find(String id) {
         return greetings.get(id);
+    }
+
+    public List<Greeting> getAllGreetings(){
+        return greetings.entrySet().stream().map(entry -> entry.getValue()).collect(Collectors.toList());
     }
 }

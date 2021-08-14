@@ -1,12 +1,14 @@
 type Greeting {
-  id: ID!
-  message: String!
+  id: ID
+  message: String
+  name: String
 }
 
 type Query {
-  getGreeting(id: ID!): Greeting
+  getGreeting(id: ID): Greeting
+  allGreetings: [Greeting]
 }
 
 type Mutation {
-  newGreeting(message: String!): Greeting!
+  newGreeting(message: String, name: String): Greeting
 }
